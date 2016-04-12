@@ -98,8 +98,8 @@ class Chef
         job_json = {
           'command' => job_name,
           'nodes' => @node_names,
-          'capture_output' => config[:capture_output]
         }
+        job_json['capture_output'] = config[:capture_output] if config[:capture_output]
         job_json['file'] = "raw:" + file_helper(config[:send_file]) if config[:send_file]
         job_json['quorum'] = get_quorum(config[:quorum], @node_names.length)
         env = get_env(config)
