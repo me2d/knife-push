@@ -129,9 +129,9 @@ class Chef
       end
 
       def get_env(config)
-        env = {}
+        env = nil
         begin
-          env = config[:with_env] ? JSON.parse(config[:with_env]) : {}
+          env = config[:with_env] ? JSON.parse(config[:with_env]) : nil
         rescue Exception => e
            Chef::Log.info("Can't parse environment as JSON")
         end
